@@ -1,0 +1,10 @@
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\bin\Debug\3DCar.exe.config
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\bin\Debug\3DCar.exe
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\bin\Debug\3DCar.pdb
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\bin\Debug\OpenTK.dll
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\bin\Debug\OpenTK.GLControl.dll
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\bin\Debug\OpenTK.xml
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\bin\Debug\OpenTK.GLControl.xml
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\obj\Debug\3DCar.csprojResolveAssemblyReference.cache
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\obj\Debug\3DCar.exe
+D:\C-an3\EGC\PROIECT\3DCar\3D-car-openGL\3DCar\obj\Debug\3DCar.pdb
