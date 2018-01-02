@@ -4,6 +4,11 @@ using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 using System.Drawing;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using OpenTK;
+using OpenTK.Graphics.OpenGL;
 
 namespace _3DCar
 {
@@ -14,12 +19,17 @@ namespace _3DCar
 
             KeyboardState lastKeyPress;
             Wheels roti = new Wheels();
+            CarBody carBody = new CarBody();
             private int forwardBack = 0;
             private int righteft = 0;
             private int upDown = 5;
             private int selectareForma = 0;
             bool curba=false;
-           // private int texturaC = 0;
+            // private int texturaC = 0;
+            private float[] valuesAmbient0 = new float[4];
+            private float[] valuesDiffuse0 = new float[4];
+            private float[] valuesSpecular0 = new float[4];
+            private float[] valuesPosition0 = new float[4];
 
             private SimpleWindow3D() : base(800, 600, new GraphicsMode(32, 24, 0, 8))
             {
@@ -73,7 +83,14 @@ namespace _3DCar
                 //schimbarea texturii
                 if (keyboard[Key.T] && !keyboard.Equals(lastKeyPress))
                 {
-                   
+                    GL.Enable(EnableCap.Lighting);
+                    GL.Light(LightName.Light0, LightParameter.Ambient, valuesAmbient0);
+                    GL.Light(LightName.Light0, LightParameter.Diffuse, valuesDiffuse0);
+                    GL.Light(LightName.Light0, LightParameter.Specular, valuesSpecular0);
+                    GL.Light(LightName.Light0, LightParameter.Position, valuesPosition0);
+                    GL.Enable(EnableCap.Light0);
+                    //pozitia luminii
+                
 
                 }
 
@@ -90,13 +107,13 @@ namespace _3DCar
                     forwardBack--;
 
                 }
-                if ((keyboard[Key.A])&& !keyboard.Equals(lastKeyPress))
+                if (keyboard[Key.A])
                 {
-                    curba = true;
-                    righteft=2;
-                    righteft++;
+                  curba = true;
+                    righteft=-2;
+                   // righteft++;
                 }
-                if ((keyboard[Key.S])&& !keyboard.Equals(lastKeyPress))
+                if (keyboard[Key.S])
                 {
                     curba = false;
                     forwardBack++;
@@ -104,7 +121,8 @@ namespace _3DCar
                 if (keyboard[Key.D])
                 {
                     curba = true;
-                    righteft--;
+                    righteft = 2;
+                  //  righteft--;
                 }
                 //mutare sus-jos
                 if (keyboard[Key.Up])
@@ -142,7 +160,7 @@ namespace _3DCar
                     while (selectareForma == 3);
 
                 }
-              //  curba = false;
+             // curba = false;
                 lastKeyPress = keyboard;
             }
 
@@ -154,19 +172,28 @@ namespace _3DCar
                 GL.Enable(EnableCap.DepthTest);
 
                 if (!curba)
-                {
+                {/*
                     GL.PushMatrix();
                     //  GL.Translate(0.0, -0.4, -3.0);
                     GL.Rotate(-5, 0.0, righteft, 0.0);//viteza,x,y,z
                     GL.Translate(forwardBack, 0.0, 0.0);//miscare in fata-w
-                    GL.Translate(0, upDown, 0);
+                    GL.Translate(0.0, 0.0, 0.0);
+                    // GL.Translate(0, upDown, 0);
                     roti.draw_cylinder(2, 10.0);
                     GL.PopMatrix();
-
+                   
+                   
+                    GL.PushMatrix();
+                    GL.Rotate(-5, 0.0, righteft, 0.0);//viteza,x,y,z
+                    GL.Translate(forwardBack, 0.0, 0.0);//miscare in fata-w
+                    GL.Translate(0.0, 0.0, 0.0);
+                  //  carBody.drawBody();
+                    GL.PopMatrix();
+                     */
                     GL.PushMatrix();
                     GL.Translate(forwardBack, 0.0, 0.0);//miscare in fata-w
-                    GL.Translate(0, upDown, 0);
-                    GL.Rotate(-5, 0.0, righteft, 0.0);//viteza,x,y,z
+                    GL.Translate(0.0, 0.0, 0.0);
+                    // GL.Translate(0, upDown, 0);
                     roti.draw_cylinder2(2, 10.0);
                     GL.PopMatrix();
                 }
@@ -175,9 +202,10 @@ namespace _3DCar
                    // GL.PushMatrix();
                     //  GL.Translate(0.0, -0.4, -3.0);
                     GL.Rotate(-1, 0.0, righteft, 0.0);//viteza,x,y,z
-                    roti.draw_cylinder(2, 10.0);
+                   // roti.draw_cylinder(2, 10.0);
                     roti.draw_cylinder2(2, 10.0);
-                   // GL.PopMatrix();
+                  //  carBody.drawBody();
+                    // GL.PopMatrix();
 
 
                 }
@@ -187,6 +215,11 @@ namespace _3DCar
                
                 // axe.DrawMe();
             }
+
+
+
+
+
 
 
 

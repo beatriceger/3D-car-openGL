@@ -52,6 +52,7 @@
     <Compile Include="CarBody.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skins.cs" />
     <Compile Include="Wheels.cs" />
   </ItemGroup>
   <ItemGroup>
